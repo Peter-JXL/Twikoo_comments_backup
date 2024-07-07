@@ -58,11 +58,6 @@ jobs:
         run: |
           mvn compile exec:java -Dexec.mainClass="cn.imzjw.comment.TwikooBackups" -Dexec.args="${PASSWORD} ${TWIKOO_URL}"
 
-      - name: Clean up and commit new file
-        run: |
-          git add /home/runner/work/comment_backups/comment_backups/twikoo-comment*.json
-          git commit -m "Add twikoo-comment-$(date +%Y-%m-%d).json" || echo "No changes to commit"
-          git push
 
       - name: Delete Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
